@@ -1,1 +1,6 @@
-# princip-ffmpeg-stream-to-buffer
+# Stream to Buffer using ffmpeg
+
+To test:
+```
+npm run test
+```

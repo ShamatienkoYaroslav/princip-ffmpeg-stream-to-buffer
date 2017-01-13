@@ -1,0 +1,20 @@
+{
+  "name": "princip-ffmpeg-stream-to-buffer",
+  "version": "0.0.1",
+  "description": "Stream to buffer using ffmpeg",
+  "main": "index.js",
+  "scripts": {
+    "test": "node ./example"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ShamatienkoYaroslav/princip-ffmpeg-stream-to-buffer.git"
+  },
+  "keywords": [],
+  "author": "Yaroslav <shamatienko.yaroslav@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ShamatienkoYaroslav/princip-ffmpeg-stream-to-buffer/issues"
+  },
+  "homepage": "https://github.com/ShamatienkoYaroslav/princip-ffmpeg-stream-to-buffer#readme"
+}
