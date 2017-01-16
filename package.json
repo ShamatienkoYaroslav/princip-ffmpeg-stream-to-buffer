@@ -1,6 +1,6 @@
 {
   "name": "princip-ffmpeg-stream-to-buffer",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Stream to buffer using ffmpeg",
   "main": "index.js",
   "scripts": {

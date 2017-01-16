@@ -49,7 +49,7 @@ const getBufferFromStream = (stream) => {
 
 module.exports = {
   stream: (params) => {
-    let { inputFormat,
+    let { inputFormat = '',
       inputFramerate,
       inputParamsString = '',
       inputSource,
@@ -59,8 +59,12 @@ module.exports = {
       outputStream = null } = params;
 
     let commandParams = [];
-    commandParams.push('-f');
-    commandParams.push(inputFormat.toString());
+
+    if (inputFormat) {
+      commandParams.push('-f');
+      commandParams.push(inputFormat.toString());
+    }
+    
     commandParams.push('-framerate');
     commandParams.push(inputFramerate.toString());
 
