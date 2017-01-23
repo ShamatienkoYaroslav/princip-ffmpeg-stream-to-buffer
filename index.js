@@ -53,8 +53,6 @@ const spawnProcess = (params, outputStream = undefined, callback = undefined) =>
   }
 
   proc.on('close', (code) => {
-    console.log(`Child process exited with code ${code}`);
-
     if (callback) {
       callback(getBufferFromStream(outputStream));
     }
