@@ -52,16 +52,6 @@ const spawnProcess = (params, outputStream = undefined, callback = undefined) =>
     proc.stdout.pipe(outputStream);
   }
 
-
-  proc.stdout.on('data', (data) => {
-    console.log(`stdout: ${data}`);
-  });
-
-  proc.stderr.on('data', (data) => {
-    console.log(`stderr: ${data}`);
-  });
-
-
   proc.on('close', (code) => {
     console.log(`Child process exited with code ${code}`);
 
@@ -134,8 +124,6 @@ module.exports = {
     }
 
     commandParams.push('pipe:1');
-
-    console.log(commandParams);
 
     if (!outputStream) {
       outputStream = generateOutputStream();
