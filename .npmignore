@@ -41,10 +41,11 @@ Temporary Items
 example
 .git
 .gitignore
-.npmignore
 
 ### Other ###
 *.gif
 *.flv
 *.avi
 *.mpg
+*.jpg
+*.png
