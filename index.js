@@ -68,6 +68,14 @@ const spawnProcess = (params, outputStream = undefined, callback = undefined) =>
     return getBufferFromStream(outputStream);
   }
 
+  proc.writeToInput = (chunk) => {
+    proc.stdin.write(chunk);
+  }
+
+  proc.endWritingToInput = () => {
+    proc.stdin.end();
+  }
+
   return proc;
 }
 
