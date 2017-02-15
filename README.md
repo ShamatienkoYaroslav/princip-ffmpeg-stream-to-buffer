@@ -1,6 +1,6 @@
 # Stream to Buffer using ffmpeg
 
-To test:
+See dir
 ```
-npm run test
+example
 ```

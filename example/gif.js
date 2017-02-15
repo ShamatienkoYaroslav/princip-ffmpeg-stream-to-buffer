@@ -1,3 +1,5 @@
+'use strict';
+
 const fs = require('fs');
 const fstb = require('../index');
 
@@ -10,11 +12,11 @@ if (process.platform == 'darwin') {
 }
 
 const proc = fstb.stream({
-  inputFormat: inputFormat,
-  inputFramerate: '30',
-  inputSource: inputSource,
-  outputPixFormat: 'rgb8',
-  outputFormat
+  inputFormat,
+  inputParamsString: '-framerate 30',
+  inputSource,
+  outputFormat,
+  outputParamsString: '-pix_fmt rgb8'
 });
 
 setInterval(() => {

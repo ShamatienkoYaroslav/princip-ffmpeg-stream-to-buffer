@@ -86,10 +86,8 @@ const spawnProcess = (params, outputStream = undefined, callback = undefined) =>
 module.exports = {
   stream: (params) => {
     let { inputFormat = undefined,
-      inputFramerate = undefined,
       inputParamsString = undefined,
       inputSource,
-      outputPixFormat = undefined,
       outputFormat = undefined,
       outputParamsString = undefined,
       outputStream = undefined,
@@ -102,23 +100,13 @@ module.exports = {
       commandParams.push(inputFormat.toString());
     }
 
-    if (inputFramerate) {
-      commandParams.push('-framerate');
-      commandParams.push(inputFramerate.toString());
-    }
-
     if (inputParamsString) {
-      commandParams = commandParams.push(getArrayFromString(inputParamsString.toString()));
+      commandParams = commandParams.concat(getArrayFromString(inputParamsString.toString()));
     }
 
     commandParams.push('-i');
     commandParams.push(inputSource.toString());
     commandParams.push('-y');
-
-    if (outputPixFormat) {
-      commandParams.push('-pix_fmt');
-      commandParams.push(outputPixFormat.toString());
-    }
 
     if (outputFormat) {
       commandParams.push('-f');

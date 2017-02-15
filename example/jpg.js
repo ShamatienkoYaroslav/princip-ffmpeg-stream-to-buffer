@@ -1,3 +1,5 @@
+'use strict';
+
 const fs = require('fs');
 const fstb = require('../index');
 
@@ -11,10 +13,10 @@ if (process.platform == 'darwin') {
 
 const proc = fstb.stream({
   inputFormat: inputFormat,
-  inputFramerate: '30',
+  inputParamsString: '-framerate 30',
   inputSource: inputSource,
   outputFormat: 'image2pipe',
-  outputParamsString: '-frames 1',
+  outputParamsString: '-t 1',
   onProcessClose: (buffer) => {
     fs.writeFileSync('./out.' + outputFormat, buffer);
   }
