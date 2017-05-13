@@ -7,17 +7,21 @@ let inputFormat, inputSource;
 const outputFormat = 'jpg';
 
 if (process.platform == 'darwin') {
-  inputFormat = 'avfoundation';
-  inputSource = '0';
+  inputFormat = 'rtsp';
+  inputSource = 'rtsp://media.smart-streaming.com/mytest/mp4:sample.mp4';
 }
 
 const proc = fstb.stream({
   inputFormat: inputFormat,
-  inputParamsString: '-framerate 30',
+  inputParamsString: '-loglevel quiet',
   inputSource: inputSource,
-  outputFormat: 'image2pipe',
-  outputParamsString: '-t 1',
-  onProcessClose: (buffer) => {
-    fs.writeFileSync('./out.' + outputFormat, buffer);
-  }
+  outputFormat,
+  outputParamsString: '-f image2pipe -preset ultrafast',
+  // onProcessClose: (buffer) => {
+  //   fs.writeFileSync('./out.' + outputFormat, buffer);
+  // }
 });
+
+setInterval(() => {
+  fs.writeFileSync('./out.' + outputFormat, proc.getBuffer());
+}, 100);

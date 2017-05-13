@@ -14,13 +14,14 @@ inputSource = 'rtsp://media.smart-streaming.com/mytest/mp4:sample.mp4';
 const proc = fstb.stream({
   inputFormat: inputFormat,
   inputSource: inputSource,
+  inputParamsString: '-loglevel quiet',
   outputFormat,
   outputParamsString: '-vcodec copy -movflags frag_keyframe+empty_moov'
 });
 
-setInterval(() => {
-  console.log('BUFFER: ', proc.getBuffer());
-}, 1000);
+// setInterval(() => {
+//   console.log('BUFFER: ', proc.getBuffer());
+// }, 1000);
 
 setTimeout(() => {
   let buffer = proc.killProcess();

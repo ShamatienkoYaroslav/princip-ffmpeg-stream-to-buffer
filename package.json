@@ -1,13 +1,13 @@
 {
   "name": "princip-ffmpeg-stream-to-buffer",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Stream to buffer using ffmpeg",
   "main": "index.js",
   "scripts": {
     "test-flv": "node ./example/flv",
-    "test-gif": "node ./example/flv",
-    "test-jpg": "node ./example/flv",
-    "test-rstp": "node ./example/flv"
+    "test-gif": "node ./example/gif",
+    "test-jpg": "node ./example/jpg",
+    "test-rstp": "node ./example/rtsp"
   },
   "repository": {
     "type": "git",

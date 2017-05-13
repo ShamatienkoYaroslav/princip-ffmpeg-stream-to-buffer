@@ -14,14 +14,14 @@ if (process.platform == 'darwin') {
 const proc = fstb.stream({
   inputFormat,
   inputSource,
-  inputParamsString: '-framerate 30',
+  inputParamsString: '-framerate 30 -loglevel quiet',
   outputFormat,
   outputParamsString: '-pix_fmt rgb8'
 });
 
-setInterval(() => {
-  console.log('BUFFER: ', proc.getBuffer());
-}, 1000);
+// setInterval(() => {
+//   console.log('BUFFER: ', proc.getBuffer());
+// }, 1000);
 
 setTimeout(() => {
   let buffer = proc.killProcess();

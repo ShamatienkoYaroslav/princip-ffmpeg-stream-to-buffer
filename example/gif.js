@@ -19,12 +19,13 @@ const proc = fstb.stream({
   outputParamsString: '-pix_fmt rgb8'
 });
 
-setInterval(() => {
-  console.log('BUFFER: ', proc.getBuffer());
-}, 1000);
+// setInterval(() => {
+//   console.log('BUFFER: ', proc.getBuffer());
+// }, 1000);
 
 setTimeout(() => {
   let buffer = proc.killProcess();
+  // console.log(buffer);
   fs.writeFileSync('./out.' + outputFormat, buffer);
   process.exit();
 }, 15000);

@@ -37,7 +37,9 @@ const generateOutputStream = () => {
 
 const getBufferFromStream = (stream) => {
   if (stream) {
-    return stream._buffer;
+    const buffer = stream._buffer;
+    stream._buffer = undefined;
+    return buffer;
   }
 
   return null;
@@ -51,6 +53,14 @@ const spawnProcess = (params, outputStream = undefined, callback = undefined) =>
   if (outputStream) {
     proc.stdout.pipe(outputStream);
   }
+
+  proc.stdout.on('data', (data) => {
+    let buffer = Buffer.from(data);
+  });
+
+  proc.stderr.on('data', (data) => {
+    console.log(`stderr: ${data}`);
+  });
 
   proc.on('close', (code) => {
     if (callback) {
@@ -85,13 +95,15 @@ const spawnProcess = (params, outputStream = undefined, callback = undefined) =>
 
 module.exports = {
   stream: (params) => {
-    let { inputFormat = undefined,
+    let { quiet = true,
+      inputFormat = undefined,
       inputParamsString = undefined,
       inputSource,
       outputFormat = undefined,
       outputParamsString = undefined,
       outputStream = undefined,
-      onProcessClose = undefined} = params;
+      onProcessClose = undefined
+    } = params;
 
     let commandParams = [];
 
